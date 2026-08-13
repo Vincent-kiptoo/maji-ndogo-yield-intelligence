@@ -3,14 +3,14 @@ This module centralizes all configuration parameters used throughout the pipelin
 SQL queris, data transformation rules, csv sources, and regex patterns for data extraction and validation
 """
 
-db_path = "sqlite:///Maji_Ndogo_farm_survey_small.db"
+db_path = "sqlite:///data/Maji_Ndogo_farm_survey_small.db"
 
 sql_query = """
 SELECT *
 FROM geographic_features
 LEFT JOIN weather_features USING (Field_ID)
 LEFT JOIN soil_and_crop_features USING (Field_ID)
-LEFT JOIN farm_manageent_features USING (Field_ID)
+LEFT JOIN farm_management_features USING (Field_ID)
 """
 
 columns_to_rename = {"Annual_yield": "Crop_type", "Crop_type": "Annual_yield"}
@@ -40,9 +40,3 @@ config_params = {
     "regex_patterns": regex_patterns,
 }
 
-"""
-Usage
->>> from src.config import config_params
->>> db_connection = config_params["db_path"]
->>> rainfall_pattern = config_params["regex_patterns"]["Rainfall"]
-"""
