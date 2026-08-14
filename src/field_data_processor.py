@@ -9,9 +9,6 @@ from src.data_ingestion import create_db_engine, query_data, read_from_web_CSV
 from src.logging_config import get_logger
 
 logger = get_logger(__name__)
-
-logger.info("FieldDataProcessor is initialized")
-
 class FieldDataProcessor:
 
     def __init__(self, config_params) -> None:
@@ -53,7 +50,7 @@ class FieldDataProcessor:
         if self.df is None or self.df.empty:
             raise ValueError("The field data is empty. Execute ingest_sql_data() method first")
         self.df[abs_column] = self.df[abs_column].abs()
-        self.logger.info("Converted the negative elavtion values to absulte figures. Elevation can never be negative")
+        self.logger.info("Converted the negative elavtion values to absulte figures.")
         self.df[column_name] = self.df[column_name].apply(lambda crop: self.values_to_rename.get(crop, crop))
         self.df[column_name] = self.df[column_name].str.strip()
         self.logger.info("Mispelled crop names and extra spaces were found and got fixed")
