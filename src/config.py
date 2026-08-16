@@ -17,7 +17,7 @@ columns_to_rename = {"Annual_yield": "Crop_type", "Crop_type": "Annual_yield"}
 
 values_to_rename = {
     "cassaval": "cassava",
-    "wheath": "wheat",
+    "wheatn": "wheat",
     "teaa": "tea"
 }
 
