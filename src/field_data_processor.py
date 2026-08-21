@@ -8,7 +8,6 @@ import pandas as pd
 from src.data_ingestion import create_db_engine, query_data, read_from_web_CSV
 from src.logging_config import get_logger
 
-logger = get_logger(__name__)
 class FieldDataProcessor:
 
     def __init__(self, config_params) -> None:
